@@ -1,0 +1,81 @@
+<DOCTYPE html>
+
+<html>
+<head>
+<style>
+body{
+    background-color: orange;
+}
+h1 {
+    font-size: 30px;
+}
+
+#myDIV {
+    width: 100%;
+    padding: 50px 0;
+    
+    background-color: lightblue;
+    margin-top: 20px;
+    display: none;
+}
+</style>
+
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<button onclick="window.location.href='./index.html';">Page d'accueil</button>
+
+<br></br>
+
+
+<h1>Table des matières</h1>
+
+<ol>
+    <li>Comment savoir si un nombre est divisible par 7 ?</li>
+</ol>
+
+<hr />
+
+
+
+<br></br>
+
+<p1>1.Comment savoir si un nombre est divisible par 7 ?</p1>
+<button onclick="mafonction()">Appuyez pour voir</button>
+<div id="myDIV" >
+    Prenons le nombre 1204, qui s’avère être la date historique de la prise de possession de Constantinople par les Croisés (tout le monde le sait !). Pour savoir si ce nombre est divisible par 7, il faut commencer par séparer le nombre en deux. Autrement dit, on prend le dernier chiffre du nombre en question, qui dans notre cas est 4, et nous le multiplions par 5.
+    $$120 \ et\ 4$$
+    $$120 \ et\ 4*5$$
+    $$120 \ et\ 20$$
+    Ensuite, nous addition le produit avec le nombre restant qui est 120. Nous addition le produit avec le nombre restant qui est 120. Ce faisant, nous devrions être en mesure de déterminer si le nombre est divisible par 7.
+    $$120 + 20 = 140$$
+    Le nombre est encore trop élevé pour le savoir, donc recommence le même processus, mais cette fois-ci avec 140.
+    $$14 \ et\ 0$$
+    $$14 \ et\ 0*5$$
+    $$14 \ et\ 0$$
+    $$14 + 0 = 14$$
+    14 est divisible par 7, donc l’année de la prise de Constantinople par les Croisés est divisible par 7.
+    $${1204 \over 7 }= 172$$
+
+    Démonstration à venir...
+</div>
+
+
+
+<script>
+function mafonction() {
+    var x = document.getElementById("myDIV")
+    if (x.style.display === "block") {
+        x.style.display = "none"
+    } else {
+        x.style.display = "block"
+    }
+}
+</script>
+
+
+</body>
+
+
+
+</html>

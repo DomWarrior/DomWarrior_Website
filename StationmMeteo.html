@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .column {
+    float: left;
+    width: 45%;
+    padding: 0px;
+  }
+  .column2 {
+    float: left;
+    width: 27.5%;
+    padding: 0px;
+  }
+
+
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+
+  }
+
+  h1 {
+    font-size: 40px;
+    font-family: "Audiowide", sans-serif ;
+    text-align: center;
+  }
+
+  p1 {
+    font-size: 20px;
+  }
+
+  .imagecontaner{
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 25px;
+    font-family: "Audiowide", sans-serif;
+  }
+
+  .code-box {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 0px solid #ddd;
+    padding: 0px;
+    background-color: #f5f5f5;
+  }
+  .code-box::-webkit-scrollbar {
+    width: 10px;
+  }
+  .code-box::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 0px;
+  }
+  .code-box::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+
+</style>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="assets/favicon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="prism.css" />
+    <link rel="stylesheet" href="plugins/line-numbers/prism-line-numbers.css" data-noprefix />
+    <script src="assets/vendor/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+    
+    <button style="width: 200px; height: 50px;" onclick="window.location.href='./portfolio.html';">Retour au menu portfolio</button>
+    <br></br>
+    <h1>Station météorologique</h1>
+    <div class="row">
+      <div class="column2">
+          <img src="1000002173.jpg" alt="allo" style="width:100%">
+          
+
+      </div>
+
+      <div class="column">
+          <img src="p_tornado_storm_135190816.jpg" alt="allo2" style="width:100%">
+          
+          
+      </div>
+
+      <div class="column2">
+        <img src="1000002178.jpg" alt="sads" style="width: 100%">
+      </div>
+      
+
+
+
+    </div>
+    <br></br>
+
+    <p1>La météorologie est une science qui permet d'étudier les phénomènes environnementaux et atmosphériques. La météorologie moderne permet de prédire la météo future à l'aide de modèle mathématique. Cet article présente un projet personnel qui a pour but d’enregistrer des données météorologiques telles que la pression, la température, l’humidité et la vitesse du vent. Afin de garder un historique cohérent, chaque mesure est associée à une date et heure qui correspond au moment où la mesure a été prise. La station météo permet d’observer certains phénomènes de la nature. En effet, les résultats démontrent, peu de temps avant une averse, une baisse de la pression atmosphérique et augmentation de l’humidité de l’air. Une pile au lithium et un système de recharge solaire s’occupent de fournir l’énergie nécessaire pour le fonctionnement du système. Le bruit de mesure et la gestion d’énergie sont parmi les principaux défis d’une station scientifique autonome. Dans le monde de la science et des mesures, le bruit influence le résultat des données et augmente l’incertitude. L’anémomètre est connecté à un circuit antirebond pour réduire le bruit. Les stations surveillance peuvent se retrouver dans des endroits isolés dont l’accès est très limité. Le mode veille contrôlé des microcontrôleurs, qui permet de réduire l’utilisation d’électricité en cas d’inactivité, n’est guère la solution la plus économique en termes d’optimisation de la consommation d’énergie. À l’aide d’un circuit intégré 555 et de quelques composantes électroniques de base, il est possible de concevoir une minuterie qui contrôle le démarrage et l’arrêt du microcontrôleur.</p1>
+
+    <br></br>
+    <br></br>
+    
+    <h2>- Résultats et discussion</h2>
+
+    <h2>- Enregistrement des données</h2>
+    <p1>Le principal objectif d’une station météo est de collecter une multitude de paramètres tels que la température, la pression, l’humidité, la vitesse du vent et la vitesse moyenne du vent. Ces données doivent être archivées de façon structurée, afin de pouvoir les utiliser à bon escient. Pour ce faire, une horloge à temps réel est implantée au système. Cette horloge permet de dater chaque mesure avec précision. Ensuite, toutes les données sont sauvegardées sur une carte micro SD et réservées pour une analyse ultérieure. </p1>
+    <br></br>
+    <p1>Microcontrôleur et capteurs utilisés:</p1>
+    
+    <ol>
+      <p1>-Microcontrôleur Arduino Uno</p1>
+      <br></br.>
+      <p1>-Capteur d'humidité <a href="https://www.adafruit.com/product/385" target="_blank" rel="noopener">DTH22</a></p1>
+      <br></br.>
+      <p1>-Capteur de pression et de température <a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1051/BMP180.pdf" target="_blank" rel="noopener">BMP180</a></p1>
+      <br></br.>
+      <p1>-Horloge à temps réel RTC I2C DS1307</p1>
+      <br></br.>
+      <p1>-Anémomètre <a href="https://inspeed.com/products/classic-anemometer" target="_blank" rel="noopener">Classic Wind Speed Sensor </a></p1>
+      <br></br.>
+      <p1>-Module de carte micro SD</p1>
+
+
+
+    </ol>
+    <p1>La figure 1.0 représente le circuit électrique des capteurs et de l'Arduino Uno.</p1>
+    <div class="imagecontaner">
+      <img src="circuitelectrique.JPG" alt="dscds">
+      <figcaption>Figure 1.0. Schéma électrique des capteurs</figcaption>
+    </div>
+    <br></br>
+    <p1>Le petit circuit branché sur le négatif de l'anémomètre est un circuit antirebond et son usage est utile, car il réduit le bruit. En fait, l’anémomètre envoie un signal produit par un interrupteur magnétique qui se ferme lorsqu’un aimant passe au-dessus. Or, ce type d’interrupteur se dit mécanique et possède l’inconvénient d’être sujet au rebond. Cette nuisance fait en sorte que l’interrupteur ne passe pas directement d’un état ouvert à un état fermé. Pendant un bref instant, l’interrupteur va osciller d’un état à l’autre ce qui fausse grandement le signal (la fréquence angulaire de l’anémomètre). Le condensateur du circuit RC se décharge lentement <sup><a>[1]</a></a></sup>en présence de rebonds ce qui produit un signal continu. </p1>
+
+    <br></br>
+
+    <p1>Quelle est la fonctionnalité de l’Arduino Uno? Ce microcontrôleur est le cerveau de la station météo. Lorsqu’alimenté, il permet l’initialisation des capteurs ainsi que l’enregistrement des données. Le code est suivant est celui de la station météo en question.</p1>
+    <br></br>
+    <div class="code-box">
+      <pre>
+        <code class="language-Arduino line-numbers">
+          #include <Wire.h>                  // Série de modules importés
+          #include <RTClib.h>
+          #include <Adafruit_BMP085.h>
+          #include <Adafruit_Sensor.h>
+          #include <DHT.h>
+          #include <DHT_U.h>
+          #include <SPI.h>  
+          #include <SD.h>
+            
+            
+            
+            
+          RTC_DS1307 rtc;
+          #define seaLevelPressure_hPa 1013.25 // Pression atmosphérique au niveau de la mer
+          Adafruit_BMP085 bmp;
+          #define DHTPIN 2 // Définir la pin 2 pour le capteur DHT (Signal analogue)
+          #define DHTTYPE DHT22 // Définir le modèle du caapteur
+          #define ALTITUDE 30 // Altitude de la station par rapport à lamer
+          DHT dht(DHTPIN, DHTTYPE);
+            
+          float humidite; // Variable float pour l'humidité
+          float tmp2; // Variable float pour la température du capteur DHT
+          const int SD_chipSelect = 4; // Sélection de la pin 4 pour la carte SD
+            
+          const int anemometerPin = 3; // Pin digital pour connecter l'anémomètre
+          volatile unsigned long sTime = 0; // Emmagasine le temps lorsque signal de l'intérupteur de l'anémomètre fermé
+          unsigned long dataTimer = 0; // Cette variable sert à suivre la fréquence de communication des données
+          volatile float pulseTime = 0; // Variable float qui représente la période entre le cTime et sTime
+          volatile float culPulseTime = 0; // Cette variable va faire une somme de tous les pulseTime pour moyenne éventuelle
+          volatile unsigned int CompteMoyenne = 0; //Variable qui compte le nombre n de tours effectués pour la moyenne
+          volatile bool start = true; // Booléen qui va servir d'enclenchement pour nouvelle mesure
+            
+            
+            
+          void setup() {
+            
+              SD.begin(SD_chipSelect); // Initialisation de la carte SD
+            
+            
+              pinMode(anemometerPin, INPUT_PULLUP); // Configurer la pin comme entrée avec pull-up interne. Donc toujours à 1 (HIGH)
+              attachInterrupt(digitalPinToInterrupt(anemometerPin), anemometerISR, RISING); //Fonction d'interruption lorsque la pin de 
+                                                                                            //l'anémomètre change d'état. La fonction anemometerISR est appelé.
+              dataTimer = millis(); //Calculer le temps depuis le démarrage du programme
+            
+              
+            
+          }
+            
+          void loop() {
+              
+              unsigned long xTime = millis(); //Variable de comparaison   
+              
+            
+              if((xTime - sTime) > 2700) pulseTime = 0; //Si la vitesse du vent est en dessous de 1 MPH, on néglige la vitesse. 
+            
+              if ((xTime - dataTimer) > 1800) {  // Transmission des données.
+            
+                detachInterrupt(digitalPinToInterrupt(anemometerPin)); // Arrête la fonction Interrupt, car on ne prend pas de mesure pendant la transmission.
+                float aWSpeed = getAvgWindSpeed(culPulseTime,CompteMoyenne); // Variable de la vitesse moyenne qui appelle la fonction get
+                culPulseTime = 0;  // Réinitialiser la variable à zero pour avoir une nouvelle valeur
+                CompteMoyenne = 0; // Réinitialiser la variable à zero pour avoir une nouvelle valeur
+                float aFreq = 0;  // Réinitialiser la variable à zero pour avoir une nouvelle valeur
+                if(pulseTime > 0.0) aFreq = getAnemometerFreq(pulseTime); // Si et seulement si le temps de l'impulsion est > 0, on trouve la fréquence. On ne veut pas de division par 0
+                float wSpeedMPH = getWindMPH(aFreq); // Prendre valeur de la vitesse en mille
+                float wSpeedKPH = getWindKPH(wSpeedMPH); //Prendre valeur de la vitesse en kilomètre
+            
+                
+            
+                
+                Serial.begin(57600); // Démarrage du moniteur pour la communication des données
+            
+                
+                rtc.begin(); // Initialisation de l'horloge
+                dht.begin(); // Initialisation du  capteur humidité et température 1
+                bmp.begin(); // Initialisation du capteur pression et température 2
+                
+            
+            
+                File dataFile = SD.open("essa2.txt", FILE_WRITE); // Ouvrir le fichier pour écrire les données
+            
+                humidite = dht.readHumidity(); // Prise de mesure de l'humidité en %
+                tmp2 = dht.readTemperature();  // Prise de mesure de la température 1 en degré celcius
+                DateTime now = rtc.now();    // Captation de l'heure actuelle 
+            
+                if (dataFile) {            // Si le fichier existe
+                  dataFile.println("");
+                  dataFile.print(now.year(), DEC);
+                  dataFile.print('/');
+                  dataFile.print(now.month(), DEC);
+                  dataFile.print('/');
+                  dataFile.print(now.day(), DEC);
+                  dataFile.print(" ");
+                  dataFile.print(now.hour(), DEC);
+                  dataFile.print(':');
+                  dataFile.print(now.minute(), DEC);
+                  dataFile.print(':');
+                  dataFile.print(now.second(), DEC);
+                  dataFile.print(";        ");
+                  dataFile.print(bmp.readTemperature());
+                  dataFile.print(";        ");
+                  dataFile.print(humidite);
+                  dataFile.print(";        ");
+                  dataFile.print(bmp.readPressure()*0.001);
+                  dataFile.print(";        ");
+                  dataFile.print(wSpeedKPH);
+                  dataFile.print(";        ");
+                  dataFile.print(aWSpeed);
+                  dataFile.close();
+            
+                }
+                else {
+                  Serial.println("Erreur. Impossible d'ouvrir le fichier");
+                }
+            
+                Serial.end(); // La fonction Serial utilise Interrput, donc il faut impérativement la fermer avant de reprendre des mesures.
+                start = true; // Réinitialisation de la variable démarrage
+                attachInterrupt(digitalPinToInterrupt(anemometerPin), anemometerISR, RISING); // Réactivation de la fonction Interrupt
+                dataTimer = millis(); // Réinitialisation de la variable temps
+              }
+              
+          }
+            
+            float getAnemometerFreq(float ptime){ return (1/ptime);} //Calcul de la fréquence
+            float getWindMPH(float freq) { return (freq*2.7); } // Calcul de la vitesse en MPH
+            float getWindKPH(float wMPH){return (wMPH*1.61);} // Calcul de la vitesse en km/h
+            float getAvgWindSpeed(float cPulse, int per){  //Calcul de la vitesse moyenne en km/h
+              if(per) return (getWindMPH(getAnemometerFreq((float)(cPulse/per))))*1.61;
+              else return 0;
+              
+              }
+            
+            
+            
+          void anemometerISR(){     // C'est la fonction Interrupt service routine qui est appelé à chaque changement d'état de la pin
+            
+              unsigned long cTime = millis(); // Prend le temps actuel depuis le démarrage
+              if(!start){  // On calcul le temps entre deux impulsions
+            
+                pulseTime = (float)(cTime-sTime)/1000; // Calcul du temps entre la première impulsion et deuxième impulsion divisé par 1000. Ça donne une période.
+                culPulseTime += pulseTime; //Additionne le période pour moyennage.
+                CompteMoyenne++; // Additionne le nombre de cycle pour moyennage.
+            
+              }
+              sTime=cTime; // Emmagasine le temps pour prochaine mesure.
+              start = false; // Point de départ pour prise de mesure.
+            
+            
+          }          
+
+
+
+
+         </code>
+      </pre>
+
+    </div>
+    <br></br>
+
+    <h2>- Alimentation</h2>
+
+    
+    <p1>Liste de matériel:</p1>
+    
+    <ol>
+      <p1>-5 panneaux solaires 5 V et 2 W</p1>
+      <br></br.>
+      <p1>-Chargeur de batterie TP4056</a></p1>
+      <br></br.>
+      <p1>-2 régulateurs de tension MT3608 </p1>
+      <br></br.>
+      <p1>-Pile rechargeable 18650 3,7 V 3000 mAh au lithium </p1>
+      <br></br.>
+
+
+    </ol>
+
+    <p1>La source d'énergie de la station météo est une pile au lithium et des panneaux solaires sont utilisés pour recharger cette dernière durant le jour lorsque le soleil est au rendez-vous. La pile fournit 3.7 volts, cependant, l’Arduino demande une entrée entre 7 et 12 volts pour un fonctionnement stable. Pour contrer cet obstacle, un régulateur de tension augmente la tension juste avant l’entrée. Le deuxième régulateur, quant à lui, offre une tension continue de 5 volts à la minuterie. Les panneaux donnent une puissance de 2 watts ce qui génère un courant de 0.33 ampère par panneau. Le branchement en parallèle des 5 panneaux solaires produit alors un courant résultant de 1.66 ampère. Ce faisant, le temps de recharge est d’environ 1.9 heure.</p1>
+    
+    <br></br>
+        <div class="imagecontaner">
+      <img src="alimentatiion.jpg" alt="dscds" style="width: 40%;">
+      <figcaption>Figure 1.05. Montage de l'alimentation</figcaption>
+    </div>
+
+    <br></br>
+
+    <h2>- Minuterie</h2>
+
+    <p1>L’Arduino n’est pas alimenté en permanence, car cela aurait un impact significatif sur la consommation d’énergie. De plus, il n’est pas nécessaire de prendre des mesures en continu. C’est donc la raison pour laquelle la station est régulée par une minuterie qui contrôle l’arrêt et le démarrage du microcontrôleur périodiquement. Dans le cas présent, la collecte de données se fait toutes les 6 minutes pendant un intervalle de 40 secondes. Le circuit intégré 555 rend cette application faisable. La figure 1.1 est le schéma électrique de la minuterie et la figure 1.2 présente le circuit une fois réalisé.</p1>
+    <br></br>
+    <div class="row">
+      <div class="column">
+          <img src="timerrr.JPG" alt="allo" style="width:100%">
+          <figcaption>Figure 1.1. Schéma électrique de la minuterie</figcaption>
+
+      </div>
+
+      <div class="column">
+          <img src="Timerimplanté.jpg" alt="allo2" style="width:100%">
+          <figcaption>Figure 1.2. Circuit électrique de la minuterie</figcaption>
+          
+      </div>
+      
+
+
+
+    </div>
+
+    <br></br>
+
+    <p1>Le lien suivant (<a href="https://tinyurl.com/2ccbspa2" target="_blank" rel="noopener">simulation</a>) redirige vers une simulation de la minuterie. Les valeurs de R1, R2 et C1 peuvent être changées pour modifier la période. Sommairement, le fonctionnement du IC 555 repose sur 3 pins, soit le trigger, le threshold et le output. Si la tension à l’entrée de threshold est plus grande que le 2/3 de la tension de la pile, alors la pin output sera à low. Durant ce temps, le condensateur se déchargera jusqu’à une tension de 1/3  la tension de la pile, ainsi la pin trigger fera en sorte que la pin output change d’état (High).
+      Une telle configuration du circuit intégré se dit astable, donc qui produit une onde carrée périodique. Un transistor à la sortie de l’output (IC 555) fait office d’inverseur d’état, car nous voulons une durée de l’état high plus courte que celle de l’état low. En effet, il faut savoir que l’onde carrée d’une configuration astable génère un état high nettement plus long. La figure 1.3 illustre ce concept<sup><a>[2]</a></sup>.
+    
+    </p1>
+
+    <div class="imagecontaner">
+      <img src="Ondecarré.JPG" alt="dscds">
+      <figcaption>Figure 1.3. Signal du output du circuit 555</figcaption>
+    </div>
+
+    <hr />
+    <h2>Références:</h2>
+    <ol>
+       <li> A Guide to Debouncing <a href="https://my.eng.utah.edu/~cs5780/debouncing.pdf" target="_blank" rel="noopener noreferrer"> https://my.eng.utah.edu/~cs5780/debouncing.pdf</a>.</li>
+       <li> 555 Astable Circuit Calculator  <a href="https://ohmslawcalculator.com/555-astable-calculator" target="_blank" rel="noopener noreferrer">https://ohmslawcalculator.com/555-astable-calculator</a>.   </li>
+    </ol>
+    <script src="prism.js"></script>
+    <script src="plugins/line-numbers/prism-line-numbers.js"></script>
+    <script src="assets/vendor/utopia.js"></script>
+
+
+  </body>
+
+
+
+
+
+
+
+</html>

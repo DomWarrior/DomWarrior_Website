@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+    
+<style>
+
+.hide-bg {
+  mix-blend-mode: multiply;
+  filter: contrast(500%);
+
+}
+
+div.gallery {
+  border: 0px solid rgba(255, 255, 255, 0.5);
+}
+
+div.gallery:hover {
+  border: 0px solid rgba(255, 255, 255, 0.5);
+}
+
+div.gallery img {
+  width: 90%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 100px;
+  float: left;
+  width: 33.3333%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.zoom  img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom img:hover {
+  transform: scale(1.2);
+}
+
+
+
+.container {
+  position: relative;
+  
+}
+
+.bottomright {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 18px
+
+}
+
+.bottomright1 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 18px
+
+}
+
+
+
+
+
+
+
+    h1{
+        font-size: 25px;
+    }
+    body {
+      background-image: url('M16_HSHO_crop2_1024.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      .corner-text {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+
+      
+      
+    }
+  }
+    </style>
+    
+    
+    <body>
+        <nav class="bottomright">
+            <a href="./Photocover.html"style="color:white;">Cliquez ici pour en savoir plus sur la photo d'accueil</a>
+        </nav>
+
+        <p class="bottomright">
+            M16 Close up &copy Image Credit & Copyright: Ignacio Diaz Bobillo
+        </p>
+
+       
+
+
+        
+    
+    </body>
+      
+
+
+
+
+
+
+    <head>
+
+        <meta charset="uft-8">
+        <meta name=" content=viewport" content="width=device-width, initial-scale=1">
+        <title> DomWarrior Nuclear Higgs boson </title>
+
+        <link rel="stylesheet" href="style.css">
+
+        
+
+
+    </head>
+
+
+    <body style="color:white;">
+        
+        <h1>Bonjour voyageur solitaire!  Bienvenue sur mon site web</h1>
+      
+       
+    </body>
+
+
+    <body>
+      <p><br></p>
+      <p><br></p>
+      <p><br></p>
+      <p><br></p>
+
+
+
+      <div class="zoom">
+      <div class="responsive">
+        <div class="gallery">
+          <a href="./divers.html">
+            <img class="hide-bg" src="misc.jpg" alt="Cinque Terre" width="300" height="200" >
+          </a>
+          <div class="desc">Divers</div>
+        </div>
+      </div>
+      
+
+      <div class="responsive">
+        <div class="gallery">
+          <a href="./portfolio.html">
+            <img  class="hide-bg" src="portfolio.jpg" alt="Northern Lights" width="300" height="200">
+          </a>
+          <div class="desc">Portfolio</div>
+        </div>
+      </div>
+      
+      <div class="responsive">
+        <div class="gallery">
+          <a href="./Qui.html">
+            <img class="hide-bg"  src="qui.JPG" alt="Mountains" width="300" height="200">
+          </a>
+          <div class="desc">Qui suis-je?</div>
+        </div>
+      </div>
+    </div>
+      
+      <div class="clearfix"></div>
+      
+      <div style="padding:6px;">
+      </div>
+      
+    </body>
+
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+    .imagecontaner{
+        text-align: center;
+    }
+    </style>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="assets/favicon.png" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="prism.css" />
+        <link rel="stylesheet" href="plugins/line-numbers/prism-line-numbers.css" data-noprefix />
+        <script src="assets/vendor/prefixfree.min.js"></script>
+
+    </head>
+
+<body>
+    <button style="width: 200px; height: 50px;" onclick="window.location.href='./portfolio.html';">Retour au menu portfolio</button>
+    <p>Il est possible de télécharger le rapport PDF en cliquant sur le mot <a href="D:\Session hiver 2024\Travaux pratiques optique photonique\Article_projet_2 Dominique_Trottier-Beaulieu.pdf" target="_blank" rel="noopener" download="Article_Biréfringence">laboratoire</a>
+    </p>
+    <p>Ce <a href="D:\Session hiver 2024\Travaux pratiques optique photonique\Article_projet_2 Dominique_Trottier-Beaulieu.pdf" target="_blank" rel="noopener" download="Article_Biréfringence">laboratoire</a> avait pour objectif de concevoir un réfractomètre numérique modélisé et de calculer la concentration d’une substance dissoute ou diluée dans l’eau en utilisant les propriétés de la réfraction de la lumière. Ce type d’outil est efficace, parce qu’il permet de prendre une multitude de mesures ce qui statistiquement parlant augmente la précision de la modélisation.</p>
+    <p>Le principe du réfractomètre numérique est simple, car il suffit de mesurer le déplacement horizontal d’un faisceau. Dans le cas présent, un faisceau laser est projeté sur une cuvette contenant l’échantillon et le faisceau transmis est détecté par une caméra. La caméra a pour rôle de prendre une image du laser résultant. Avec un peu de traitement d’image, il est possible de trouver le centroïde de la tache lumineuse. </p>
+    <p>Le code Python suivant traite les photos et permet de trouver le centroïde de la tache lumineuse.</p>
+    
+    
+    <pre>
+        <code class="language-Python line-numbers">
+            import cv2 
+import numpy as np 
+import os
+import csv
+import time
+
+
+dossier_images = 'Image_non'   #Entrez le nom du dossier contenant les photos à traiter
+
+chemincsv = 'coordonnées.csv'   #Entrez un nom pour créer une liste contenant la position centroide et
+                                     # et l'angle associé
+
+fichiers_images = os.listdir(dossier_images)  #Liste des éléments du dossier
+
+
+positions_centroide = [] #Liste vide pour englober les controides 
+
+with open(chemincsv, 'w', newline='') as fichier_csv: # Ouverture du fichier pour écrire les coordonnées
+   
+   writer = csv.writer(fichier_csv)
+
+   writer.writerow(['Nom', 'Coordonnée X', 'Coordonnée Y'])
+   seuil = 150                                              # Valeur minimale 
+   for fichier in fichiers_images:                          # Boucle pour itérer chacune des images du dossier
+     
+     chemin_image = os.path.join(dossier_images, fichier)
+   
+     image = cv2.imread(chemin_image, cv2.IMREAD_GRAYSCALE)   #On transforme l'image en matrice
+    
+     _, seuil_image = cv2.threshold(image, seuil, 255, cv2.THRESH_BINARY) # Tous les points en dessous de 155 = 0 et les points plus haut que 155 =1
+    
+     y, x = np.unravel_index(np.argmax(seuil_image), seuil_image.shape)  # On trouve le centre de la tache résultante
+
+     writer.writerow([fichier[6:15],x])
+   
+     seuil_image[y, x] = 255 
+     positions_centroide.append((x, y))  
+     print(f"Coordonnées du centroïde pour {fichier} : ({x})")
+     
+     '''cv2.imwrite(f'image_seuillee_centroide_{fichier}', seuil_image) ''' # Si on veut enregistrer les photos traitées
+            
+
+
+        </code>
+
+    </pre>
+
+    <p>En quelque mot, le code permet d’itérer toutes les photos qui se trouvent dans le fichier appelé. Par la suite, l’image est convertie en matrice et subit une valeur seuil qui centralise le point lumineux. Ce faisant, tous les points non désirés causés par la diffraction sont éliminés. Pour terminer, le centroïde est trouvé et écrit dans une liste csv. </p>
+    <p>Voici un exemple d’une photo non traitée et traitée.</p>
+
+    <div class="imagecontaner">
+        <img src="image_2.7714187378038044_degres.jpg" alt="a" style="width: 35%;">
+        <figcaption>Image non-traitée</figcaption>
+    </div>
+    <br></br>
+    <div class="imagecontaner">
+        <img src="image_seuillee_centroide_image_2.7714187378038044_degres.jpg" alt="a" style="width: 35%;">
+        <figcaption>Image traitée</figcaption>
+    </div>
+
+    <br></br>
+    <br></br>
+    
+    <p>L’échantillon, quant à lui, effectuait un déplacement angulaire sur un moteur asservi de haute précision. Le moteur et la caméra étaient synchronisés par le code Python ci-dessous. En effet, lorsque le moteur tournait de 0.05 degré, la caméra prenait une photo. Ainsi, beaucoup de mesures peuvent être prises sur un petit déplacement total.</p>
+
+    <pre>
+
+        <code class="language-Python line-numbers">
+            #Lancer ce code en premier, afin de relier le moteur/contrôleur à l'ordinateur
+            
+            from pylablib.devices import Thorlabs  #importer module important
+
+            Engine = Thorlabs.KinesisMotor('83819747')  # Entrez le numéro de série du moteur pour débuter communication
+            initial = (float(Engine.get_position()))/1919.59444 # Enregistrer la position initiale lors du démarrage
+                                                                # La valeur 1919.59444 vaut 1 degré
+
+            def Déplacement(): # Fonction pour bouger moteur
+                Engine.move_by(95.97)  # Bouger le moteur de 0.05 degré
+                
+            
+            def position(): # Fonction pour obtenir la position après déplacement
+                Position = (float(Engine.get_position()))/1919.59444 # Convertie la position en degré   
+                return Position
+
+
+
+
+        </code>
+
+    </pre>
+
+    <p>L’existence de la valeur de 1919.59444 reste pour le moment nébuleuse. Cette valeur provient du fait qu’une rotation de 360 degrés donne 691 053.998 de cette unité mystérieuse. Le pylablib est un module extraordinaire qui fournit un large éventail d’option pour contrôler des dispositifs USB avec Python. Le code qui suit démontre l’utilité de ce module, car il rend possible la synchronisation de la caméra et du déplacement de 0.05 degré. </p>
+  
+
+    <pre>
+        <code class="language-Python line-numbers">
+
+            #Rouler ce code en deuxième afin de prendre des photos des échantillons
+
+
+import cv2
+import time
+import os
+from Initialisation_du_moteur import Déplacement, position, initial
+
+print('Entrez concentration') #Permet de créer nouveau fichier à chaque fois que le code est lancé
+x = input()
+
+cap = cv2.VideoCapture(0) # Connection caméra USB
+nom_dossier = x
+os.makedirs(nom_dossier)
+
+if not cap.isOpened():  
+    print("Impossible de trouver la caméra!")
+    exit()
+
+else:
+    print('La caméra trouvé!')
+
+for i in range(250): # On itère 250 fois, ainsi on effectue un déplacement total de 12.5 degrés
+    ret, frame = cap.read()
+    if not ret:
+        print('Error')
+        break
+
+    
+
+    b = position()-initial  # Pas le choix d'avoir ça, car il faut reinitialiser la position à 0 degré # On commence à zéro degré pour faciliter les données 
+    
+    nom_fichier = os.path.join(nom_dossier, f"image_{b}_degres.jpg")
+   
+    cv2.imwrite(nom_fichier, frame)
+
+        
+    cv2.waitKey(1000) # Attendre 1 sec avant prochain déplacement
+
+    Déplacement()
+    
+    time.sleep(0.5)
+    
+
+
+cap.release()
+cv2.destroyAllWindows()
+
+
+
+
+            
+        </code>
+    </pre>
+
+    <p>Pour terminer, si l’expérience était à refaire, mesurer le déplacement de la gaussienne (du laser) serait davantage plus précis</p>
+
+  <script src="prism.js"></script>
+  <script src="plugins/line-numbers/prism-line-numbers.js"></script>
+  <script src="assets/vendor/utopia.js"></script>
+
+</body>
+
+
+
+
+</html>
